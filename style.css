@@ -25,6 +25,7 @@
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
+  border-top: 10px solid var(--ink);
   background-color: var(--paper);
   background-image:
     linear-gradient(var(--grid) 1px, transparent 1px),
@@ -100,10 +101,10 @@ details[open] .chev { transform: rotate(225deg) translate(-2px, -2px); }
   font-family: var(--hand); font-size: 1.05rem; color: var(--pen); border: 2px solid var(--pen);
   border-radius: 50%; padding: 0 0.6rem; transform: rotate(-4deg); flex: none;
 }
+
 .chip {
-  font-size: 0.78rem; color: var(--ink); background: var(--tint);
-  border: 1px solid var(--rule); border-radius: 999px; padding: 0.05rem 0.55rem;
-  flex: none; white-space: nowrap;
+  display: table; margin-top: 0.3rem; font-size: 0.78rem; font-weight: 400; line-height: 1.5; color: var(--ink); background: var(--tint);
+  border: 1px solid var(--rule); border-radius: 999px; padding: 0.05rem 0.6rem;
 }
 
 .body { padding: 0 1rem 1.25rem; }
@@ -222,3 +223,12 @@ dialog .btn { background: var(--paper); }
 .actions + .photos { margin-top: 0.9rem; }
 
 .videoitem + .videoitem { margin-top: 22px; }
+
+/* Phones: date, "new" and the arrow on the first line, title and topic tag underneath */
+@media (max-width: 520px) {
+  summary { flex-wrap: wrap; row-gap: 0.25rem; }
+  .date { order: 1; }
+  .new { order: 2; }
+  .chev { order: 3; margin-left: auto; }
+  .topic { order: 4; flex: 1 1 100%; }
+}
