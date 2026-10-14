@@ -92,13 +92,16 @@
   function photosHtml(names, single) {
     var h = '<div class="photos">';
     names.forEach(function (n, i) {
-      var cap = single ? "Set-up" : "Photo " + (i + 1) + " of " + names.length;
-      var id = driveId(n);
+      var parts = String(n).split("|");
+      var file = parts[0].trim();
+      var custom = parts.length > 1 ? parts.slice(1).join("|").trim() : "";
+      var cap = custom || (single ? "Set-up" : "Photo " + (i + 1) + " of " + names.length);
+      var id = driveId(file);
       var alt = id ? ' data-alt="https://lh3.googleusercontent.com/d/' + id + '" referrerpolicy="no-referrer"' : "";
       var miss = id ? "This photo will not load.<br>Check its Google Drive sharing is set to “Anyone with the link”."
-                    : "Photo not uploaded yet<br>" + esc(n);
-      h += '<button type="button" class="ph" data-src="' + esc(photoSrc(n)) + '" aria-label="Enlarge: ' + cap + '">' +
-        '<span class="frame"><img loading="lazy" src="' + esc(photoSrc(n)) + '"' + alt + ' alt="' + esc(cap) + '">' +
+                    : "Photo not uploaded yet<br>" + esc(file);
+      h += '<button type="button" class="ph" data-src="' + esc(photoSrc(file)) + '" aria-label="Enlarge: ' + esc(cap) + '">' +
+        '<span class="frame"><img loading="lazy" src="' + esc(photoSrc(file)) + '"' + alt + ' alt="' + esc(cap) + '">' +
         '<span class="miss">' + miss + '</span></span><span class="cap">' + cap + "</span></button>";
     });
     return h + "</div>";
@@ -352,6 +355,7 @@
         var prev = items[i + 1] || null;
         h += '<li class="lesson"><details id="' + id + '"><summary><span class="date">' + esc(day(it.date)) + "</span>" +
           '<span class="topic">' + esc(first(it, "title")) + "</span>" +
+          (first(it, "topic") ? '<span class="chip">' + esc(first(it, "topic")) + "</span>" : "") +
           (i === 0 && tab.type === "lesson" ? '<span class="new">new</span>' : "") +
           '<span class="chev" aria-hidden="true"></span></summary><div class="body">' + BODY[tab.type](it, prev) + "</div></details></li>";
       });
