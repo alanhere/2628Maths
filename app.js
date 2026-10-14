@@ -206,19 +206,17 @@
       var sm = all(it, "summary");
       if (sm.length) h += blk("What we did in class", paras(sm));
 
-      /* 2. Last night's homework */
-      var sol = first(it, "solutions"), qs = all(it, "q"), s = "";
-      if (sol || qs.length) {
-        if (prev) s += '<p class="sub">Homework set on ' + esc(day(prev.date)) + ".</p>";
-        if (qs.length) {
-          s += '<ul class="marks">' + qs.map(function (q) {
-            var x = split2(q);
-            return "<li>" + (x.url ? '<a class="q" href="' + esc(x.url) + '" target="_blank" rel="noopener" aria-label="Solution to question ' + esc(x.text) + '">' + tickSvg + "Q" + esc(x.text) + "</a>" : "") + "</li>";
-          }).join("") + "</ul>";
-        }
-        if (sol) { var sl = split2(sol); s += '<a class="btn' + (qs.length ? "" : " main") + '" href="' + esc(sl.url || sol) + '" target="_blank" rel="noopener">' + (qs.length ? "Open all solutions" : "Open solutions") + "</a>"; }
+      /* 2. Last night's homework: what it was, and a Solutions button */
+      var sol = first(it, "solutions"), s = "";
+      var pw = prev ? split2(first(prev, "homework") || "") : null;
+      var pwText = pw && pw.text ? pw.text : "";
+      if (!prev) {
+        s = '<p class="sub">No homework was set before this lesson.</p>';
       } else {
-        s = '<p class="sub">' + (prev ? "Solutions will be added soon." : "No homework was set before this lesson.") + "</p>";
+        if (pwText) s += "<p>" + esc(pwText) + "</p>";
+        s += '<p class="sub">Homework set on ' + esc(day(prev.date)) + ".</p>";
+        if (sol) { var sl = split2(sol); s += '<a class="btn main" href="' + esc(sl.url || sol) + '" target="_blank" rel="noopener">Solutions</a>'; }
+        else s += '<p class="sub">Solutions will be added soon.</p>';
       }
       h += blk("Last night’s homework", s);
 
@@ -354,8 +352,7 @@
         var id = "item-" + it.date + (it.__n ? "-" + it.__n : "");
         var prev = items[i + 1] || null;
         h += '<li class="lesson"><details id="' + id + '"><summary><span class="date">' + esc(day(it.date)) + "</span>" +
-          '<span class="topic">' + esc(first(it, "title")) + "</span>" +
-          (first(it, "topic") ? '<span class="chip">' + esc(first(it, "topic")) + "</span>" : "") +
+          '<span class="topic">' + esc(first(it, "title")) + (first(it, "topic") ? '<span class="chip">' + esc(first(it, "topic")) + "</span>" : "") + "</span>" +
           (i === 0 && tab.type === "lesson" ? '<span class="new">new</span>' : "") +
           '<span class="chev" aria-hidden="true"></span></summary><div class="body">' + BODY[tab.type](it, prev) + "</div></details></li>";
       });
@@ -495,6 +492,30 @@
     return h;
   }
 
+  /* ---------- Colour themes (set theme: "green" in config.js) ---------- */
+  var THEMES = {
+    green:  { l: { ink: "#1F6B3A", pen: "#C2410C", grid: "#DDEEE2", rule: "#B0D0B9", tint: "#ECF5EF", ph: "#E3EFE7" },
+              d: { ink: "#8FE0A8", pen: "#FFA36B", paper: "#121A15", grid: "#1B2B22", card: "#18231D", rule: "#2F4A3A", tint: "#1B2B22", ph: "#1B2B22" } },
+    crimson:{ l: { ink: "#9B1C2E", pen: "#1F4E8C", grid: "#F3E1E4", rule: "#E0B5BC", tint: "#F9EDEF", ph: "#F4E6E8" },
+              d: { ink: "#FF9AA8", pen: "#8DB8FF", paper: "#1A1416", grid: "#2B1C20", card: "#21181B", rule: "#5A3640", tint: "#2B1C20", ph: "#2B1C20" } },
+    purple: { l: { ink: "#5B2C9F", pen: "#C2610A", grid: "#E9E2F5", rule: "#CBBDE6", tint: "#F2EEFA", ph: "#EBE6F6" },
+              d: { ink: "#C9ADFF", pen: "#FFB35C", paper: "#16131F", grid: "#231D33", card: "#1D1928", rule: "#43385E", tint: "#231D33", ph: "#231D33" } },
+    teal:   { l: { ink: "#0F6B73", pen: "#D3242B", grid: "#D9EDEF", rule: "#AAD2D6", tint: "#E8F4F5", ph: "#DFEEF0" },
+              d: { ink: "#7FE0E8", pen: "#FF7B80", paper: "#111A1C", grid: "#18292C", card: "#162225", rule: "#2B4A4F", tint: "#18292C", ph: "#18292C" } },
+    orange: { l: { ink: "#B34A0B", pen: "#1D3A9C", grid: "#F6E7D6", rule: "#E5C6A6", tint: "#FBF0E4", ph: "#F6EADD" },
+              d: { ink: "#FFB27A", pen: "#A9BCFF", paper: "#1A1511", grid: "#2B2118", card: "#211A14", rule: "#58422E", tint: "#2B2118", ph: "#2B2118" } }
+  };
+  (function applyTheme() {
+    var t = THEMES[String(SITE.theme || "").toLowerCase()];
+    if (!t) return;
+    function vars(o) { return Object.keys(o).map(function (k) { return "--" + k + ":" + o[k] + ";"; }).join(""); }
+    var st = document.createElement("style");
+    st.textContent = ":root{" + vars(t.l) + "}@media (prefers-color-scheme: dark){:root{" + vars(t.d) + "}}";
+    document.head.appendChild(st);
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute("content", t.l.ink);
+  })();
+
   /* ---------- Start up ---------- */
 
   document.title = SITE.title || "Lessons";
@@ -544,3 +565,4 @@
 
   render();
 })();
+
