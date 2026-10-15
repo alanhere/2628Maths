@@ -54,3 +54,10 @@ homework: In the handout, do unto question 14 | https://drive.google.com/file/d/
 photos: 2026-10-06-1.jpg, 2026-10-06-2.jpg, 2026-10-06-3.jpg
 solutions: https://drive.google.com/file/d/1rqNWrXCDu4lIhi27NzdbdORRAYWcG-b2/view?usp=share_link
 video: Video on grouping | https://www.loom.com/share/dd7e823d53cc414eaf93d5739fda9b39
+
+date: 2026-10-02
+title: Factorisation HCF
+topic: Algebra
+summary: We learnt the technique of highest common factor.
+homework: From the handout, if confident do questions 10 to 16. Otherwise do questions 3-9 | https://drive.google.com/file/d/1e1hpNFCGQ7LiK1aeBFtjOVkHGoUW2cnw/view?usp=share_link
+video: Video on HCF | https://www.youtube.com/watch?v=vViglKOwRnk
