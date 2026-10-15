@@ -61,3 +61,17 @@ topic: Algebra
 summary: We learnt the technique of highest common factor.
 homework: From the handout, if confident do questions 10 to 16. Otherwise do questions 3-9 | https://drive.google.com/file/d/1e1hpNFCGQ7LiK1aeBFtjOVkHGoUW2cnw/view?usp=share_link
 video: Video on HCF | https://www.youtube.com/watch?v=vViglKOwRnk
+
+date: 2026-09-30
+title: Algebra Revision
+topic: Algebra
+summary: Worked through the algebra revision sheet.
+homework: complete algebra revision sheet. | https://drive.google.com/file/d/1pPZTaeYkm_fzWL_4a5qYjou6T1y2VbEU/view?usp=share_link
+video: Solutions to revision sheet | https://www.youtube.com/playlist?list=PLEPYP7v0ii24
+
+date: 2026-09-29
+title: Rearrange Formulaw
+topic: Algebra
+summary: Took common formula and rearranged them.
+homework: Page 60-61 Questions 1-6
+photos: 2026-09-29-1.jpg, 2026-09-29-2.jpg
