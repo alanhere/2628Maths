@@ -36,3 +36,12 @@
 # video: How to solve questions 4 to 10 | https://www.youtube.com/watch?v=XXXXXXXXXXX
 # notes: Guided notes, chapter 7 | chapter-7.pdf
 # ---------------------------------------------------------------
+
+date: 2026-10-09
+title: Factorisation - Difference of two squares
+topic: Algebra
+summary: Today we revised HCF and Grouping and did the difference of two squares.
+homework: Do Questions 31 to 36 from the book, page 67 | https://drive.google.com/file/d/1tVDQkaX5-j9ud_NGL1fce1jtiES14CD9/view?usp=share_link
+photos: 2026-10-09-1.jpg, 2026-10-09-2.jpg, 2026-10-09-3.jpg, 2026-10-09-4.jpg, 2026-10-09-5.jpg, 2026-10-09-6.jpg, 2026-10-09-7.jpg
+solutions: https://drive.google.com/file/d/1ATlNH02MSdvEsW296rHt4PwWOAAMjBqt/view?usp=share_link
+video: Video on difference of two squares | https://www.youtube.com/watch?v=S3JXkf5X97Y
