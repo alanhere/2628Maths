@@ -1,0 +1,40 @@
+# ---------------------------------------------------------------
+# HOW TO ADD A USEFUL SITE
+# Copy a whole entry from below, paste it anywhere in this file, then change the words.
+# Sites are grouped under headings. Use exactly the same heading each time.
+#
+# date: 2026-10-15
+# title: Name of the website
+# topic: Practice questions
+# about: One line on what it is good for.
+# link: Visit site | https://www.example.com
+#
+# date sets the order within a heading. It is not shown.
+# The topic line is the heading, for example Practice questions, Videos or Tools.
+# Add a second link line for a second button if you need one, such as a particular page.
+# The entries below are examples. Change or delete them.
+# ---------------------------------------------------------------
+
+date: 2026-10-15
+title: Studyclix
+topic: Practice questions
+about: Past exam questions sorted by topic, with marking schemes.
+link: Visit site | https://www.studyclix.ie
+
+date: 2026-10-15
+title: State Examinations Commission
+topic: Practice questions
+about: The official past exam papers and marking schemes.
+link: Visit site | https://www.examinations.ie
+
+date: 2026-10-15
+title: Desmos graphing calculator
+topic: Tools
+about: Free online graphing calculator. Good for checking graphs of functions.
+link: Visit site | https://www.desmos.com/calculator
+
+date: 2026-10-15
+title: Khan Academy
+topic: Videos
+about: Short video lessons and practice exercises on most maths topics.
+link: Visit site | https://www.khanacademy.org/math

@@ -1,0 +1,38 @@
+# ---------------------------------------------------------------
+# HOW TO ADD A STUDY HINT
+# Copy a whole entry from below, paste it anywhere in this file, then change the words.
+# Hints are grouped under headings. Use exactly the same heading each time.
+#
+# date: 2026-10-15
+# title: Short name for the hint
+# topic: Getting started
+# about: One line summary.
+# explain: A sentence or two explaining the hint.
+# explain: Repeat the line for a second paragraph.
+# example: A worked example, if it helps.
+# link: Button label | https://link-if-useful
+#
+# date sets the order within a heading. It is not shown.
+# Only title is needed. about, explain, example, video and link are all optional.
+# The entries below are examples. Change or delete them.
+# ---------------------------------------------------------------
+
+date: 2026-10-15
+title: Little and often
+topic: How to study
+about: Twenty minutes most days works better than two hours the night before.
+explain: Your memory holds on to things you come back to. Revisit a topic a day later, then a week later, and it sticks.
+explain: Finish each session by writing down one thing you could do without looking.
+
+date: 2026-10-16
+title: Keep a mistakes page
+topic: How to study
+about: Your own errors are the best revision list.
+explain: When you get a question wrong, write the question, the correct method and why you slipped. Re-read this page before a test.
+
+date: 2026-10-17
+title: Show every step
+topic: In the exam
+about: Marks are given for method, not just the final answer.
+explain: Write each line of working, even if it seems obvious. A small slip then costs one mark, not all of them.
+explain: Check by putting your answer back into the question.

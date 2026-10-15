@@ -7,9 +7,10 @@ WHAT IS IN THIS FOLDER
 index.html, style.css, app.js   The website itself. Please leave these alone.
 config.js                       The site title and main colour. Safe to edit.
 lessons.txt                     Your lessons. This is the file you edit every day.
-notes.txt                       Your guided notes, grouped by topic.
+tests.txt                       Your tests (Tests tab).
+sites.txt, pastquestions.txt, hints.txt   Your Revision tab: useful sites, past questions and study hints.
 photos/                         Your board photos go in this folder.
-notes/                          Your guided notes PDFs go in this folder.
+notes/                          Guided notes PDFs that you link from a lesson go in this folder.
 README.txt                      This guide.
 
 PART 1 - Put it online (once, about 20 minutes)
@@ -37,11 +38,10 @@ Aim for under 1 MB per photo. A few hundred KB is plenty for a board.
 B. Guided notes (on GitHub)
 1. Give the PDF a short name with no spaces, such as chapter-7.pdf.
 2. Open the notes folder, click Add file, then Upload files, drag the PDF in and click Commit changes.
-3. In notes.txt, write: notes: chapter-7.pdf
-4. To add the completed version later, upload it under a new name, such as chapter-7-completed.pdf, and add the line: completed: chapter-7-completed.pdf
-To link the notes from a lesson, add: notes: Guided notes, chapter 7 | chapter-7.pdf
+3. In the lesson in lessons.txt, add: notes: Guided notes, chapter 7 | chapter-7.pdf
+The lesson then shows a Guided notes button.
 
-C. Homework and solutions (on Google Drive)
+C. Homework, solutions, tests (on Google Drive)
 Set up once:
 1. In Drive, make a folder such as Maths Homework.
 2. Right-click it, choose Share, and under General access choose Anyone with the link, with the role Viewer. Click Done. Files inside should then be viewable by anyone with their link.
@@ -64,22 +64,16 @@ PART 3 - Add a lesson (every day, 3 to 5 minutes)
 4. Click Commit changes, then Commit again. The site updates within about a minute.
 
 
-GUIDED NOTES LINES (notes.txt)
-date        Required. The day you gave the notes out. Sets the order and is not shown.
-title       Required.
-topic       The heading the notes are grouped under. Use the same spelling each time.
-about       One line describing the notes.
-notes       The PDF file name from the notes folder, like chapter-7.pdf.
-completed   Optional. The file name of the completed version.
-
 LESSON LINES (lessons.txt)
 date        Required. Written 2026-10-08.
 title       Required. The name of the lesson.
-homework    Tonight's homework. Write: what to do | Drive link
+topic       Optional. A short tag shown under the lesson title, such as Algebra.
+summary     Optional. A sentence or two on what you did in class. Repeat the line for a second paragraph.
+homework    Today's homework (shown last on the lesson). Write: what to do | Drive link
 photos      Board photo file names, separated by commas, like 2026-10-08-1.jpg
-solutions   Drive link to last night's solutions.
-q           Optional. One line per question: q: 1 | link
-video       Write: title | YouTube link. It plays on the page.
+solutions   Drive link to last night's homework solutions. Students see last night's homework (taken from the previous lesson's homework line) with a Solutions button.
+video       Write: title | YouTube link. It plays on the page. Use up to 3 video lines per lesson.
+exitquiz    Optional. Write: label | isaacscience.org link (or just the link). Shows an Exit quiz button. Leave it out and nothing shows.
 notes       Optional. Write: description | chapter-7.pdf. Adds a Guided notes button.
 
 USEFUL EXTRAS
@@ -95,3 +89,27 @@ IF SOMETHING LOOKS WRONG
 - A video that shows only a link needs a full YouTube address, such as https://www.youtube.com/watch?v=XXXXXXXXXXX or https://youtu.be/XXXXXXXXXXX
 - If the site does not change after you commit, wait a minute and refresh. If it still has not changed, check the Actions tab on GitHub for a green tick.
 - Made a mistake? On the file, click History, then pick an earlier version to copy back.
+
+TEST LINES (tests.txt)
+date        Required. The day of the test, written 2026-10-14. Newest shows first.
+title       Required. The name of the test or quiz.
+topic       Optional. A small tag, such as Algebra.
+test        Drive link to the test. You can name the button: Paper 1 | link
+solutions   Drive link to the solutions. Leave it out until you want students to see them. The page says "Solutions coming soon."
+about       Optional. One line describing the test.
+
+
+REVISION TAB (sites.txt, pastquestions.txt, hints.txt)
+The Revision tab has three sections. Each has its own text file, and each works the same way as lessons.txt: copy an entry, paste it underneath and change the words.
+sites.txt           Useful websites. Lines: date, title, topic (the heading), about, link: Visit site | web address
+pastquestions.txt   Past questions. Lines: date, title, topic, about, link: Questions | Drive link, link: Solutions | Drive link, video
+hints.txt           Study hints. Lines: date, title, topic (the heading), about, explain (repeat for more paragraphs), example
+date only sets the order within a topic. It is not shown.
+
+
+CLASS COLOURS
+Each class site can have its own colour, so you can tell them apart at a glance.
+Open config.js and change the theme line, for example:   theme: "green",
+Choices: blue, green, crimson, purple, teal, orange.
+The graph paper, headings, dates, buttons and the stripe across the top all change. Dark mode matches too.
+To make a new class site, copy a whole site folder, make a new GitHub repository for it, change the title, intro and theme in config.js, and empty lessons.txt.

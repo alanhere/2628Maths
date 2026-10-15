@@ -1,0 +1,25 @@
+# ---------------------------------------------------------------
+# HOW TO ADD PAST QUESTIONS
+# Copy a whole entry from below, paste it anywhere in this file, then change the words.
+# Entries are grouped by topic. Use exactly the same topic name each time.
+#
+# date: 2026-10-15
+# title: Algebra past questions
+# topic: Algebra
+# about: Questions from 2019 to 2024, with worked solutions.
+# link: Questions | https://drive.google.com/file/d/XXXX/view?usp=sharing
+# link: Solutions | https://drive.google.com/file/d/XXXX/view?usp=sharing
+# video: How to answer question 3 | https://www.youtube.com/watch?v=XXXXXXXXXXX
+#
+# date sets the order within a topic. It is not shown.
+# link can be repeated as many times as you like. Write: button label | link
+# Leave the solutions link out until you want students to see it.
+# about and video are optional.
+# The entry below is an example. Change or delete it.
+# ---------------------------------------------------------------
+
+date: 2026-10-15
+title: Official past papers
+topic: All topics
+about: Every past exam paper and marking scheme, from the State Examinations Commission.
+link: Past papers | https://www.examinations.ie

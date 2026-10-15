@@ -332,6 +332,7 @@
     var data = cache[tab.id], items = data.items;
     if (tab.type === "notes") { view.innerHTML = renderNotes(tab, data); return; }
     if (tab.type === "resources") { view.innerHTML = renderResources(tab, data); return; }
+    if (tab.type === "tests") { view.innerHTML = renderTests(tab, data); return; }
     var openIds = Array.prototype.map.call(view.querySelectorAll("details[open]"), function (d) { return d.id; });
     var limit = shown[tab.id] || FIRST;
     var target = -1;
@@ -440,7 +441,7 @@
         groups[t].forEach(function (it) {
           var body = "";
           if (first(it, "about")) body += '<div class="block"><p>' + esc(first(it, "about")) + "</p></div>";
-          if (all(it, "explain").length) body += blk("The idea", paras(all(it, "explain")));
+          if (all(it, "explain").length) body += blk(tab.ideaHeading || "The idea", paras(all(it, "explain")));
           if (all(it, "example").length) body += blk("Worked example", paras(all(it, "example")));
           if (first(it, "video")) body += blk("Watch", videoHtml(all(it, "video")));
           var links = all(it, "link");
@@ -455,6 +456,33 @@
             '</span><span class="chev" aria-hidden="true"></span></summary><div class="body">' +
             (body || blk("Details", '<p class="sub">Nothing added yet.</p>')) + "</div></details></li>";
         });
+      });
+      h += "</ol>";
+    }
+    if (data.skipped) h += '<p class="note warn">' + data.skipped + (data.skipped === 1 ? " entry was" : " entries were") + " skipped. Each one needs a title and a date written like 2026-10-08.</p>";
+    return h;
+  }
+
+  /* Tests (or quizzes): newest first. Each one has a link to the test and a link to the solutions. */
+  function renderTests(tab, data) {
+    var items = data.items, h = "", what = tab.what || "test", What = what.charAt(0).toUpperCase() + what.slice(1);
+    if (!items.length) {
+      h = '<p class="note">Nothing here yet. Add an entry to ' + esc(tab.file) + " and it will appear.</p>";
+    } else {
+      h = '<ol class="timeline">';
+      var lastMonth = "";
+      items.forEach(function (it) {
+        var m = it.date.slice(0, 7);
+        if (m !== lastMonth) { h += '<li class="ghead"><h2>' + fMonth.format(dt(it.date)) + "</h2></li>"; lastMonth = m; }
+        var t = split2(first(it, what) || first(it, "link")), s = split2(first(it, "solutions"));
+        h += '<li class="lesson"><div class="card"><b>' + esc(first(it, "title")) + "</b>" +
+          (first(it, "topic") ? '<span class="chip">' + esc(first(it, "topic")) + "</span>" : "") +
+          '<p class="muted">' + esc(day(it.date)) + "</p>" +
+          (first(it, "about") ? "<p>" + esc(first(it, "about")) + "</p>" : "") +
+          '<div class="actions">' +
+          (t.url ? '<a class="btn main" href="' + esc(fileUrl(tab.folder || "tests", t.url)) + '" target="_blank" rel="noopener">' + esc(t.text || "Open " + what) + "</a>" : '<span class="muted">' + What + ' coming soon.</span>') +
+          (s.url ? '<a class="btn" href="' + esc(fileUrl(tab.folder || "tests", s.url)) + '" target="_blank" rel="noopener">' + esc(s.text || "Solutions") + "</a>" : '<span class="muted">Solutions coming soon.</span>') +
+          "</div></div></li>";
       });
       h += "</ol>";
     }
@@ -565,4 +593,3 @@
 
   render();
 })();
-

@@ -1,0 +1,19 @@
+# ---------------------------------------------------------------
+# HOW TO ADD A TEST OR QUIZ
+# Copy the example below, paste it anywhere in this file, then change the words.
+# Lines that start with # are notes. The website ignores them.
+# Every entry starts with a date line, written year-month-day, like 2026-10-14.
+# The date is the day of the test. Newest tests show first.
+#
+# date: 2026-10-14
+# title: Algebra test
+# topic: Algebra                  (optional, a small tag, such as Algebra)
+# test: https://drive.google.com/file/d/XXXX/view?usp=sharing
+# solutions: https://drive.google.com/file/d/XXXX/view?usp=sharing
+# about: Chapters 6 and 7. Calculator allowed.   (optional, one line)
+#
+# test and solutions are Google Drive share links. Paste the whole link.
+# Leave the solutions line out until you are ready for students to see the solutions.
+# The page then says "Solutions coming soon." Add the link later and the button appears.
+# You can name a button: test: Paper 1 | https://drive.google.com/...
+# ---------------------------------------------------------------
