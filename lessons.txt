@@ -70,7 +70,7 @@ homework: complete algebra revision sheet. | https://drive.google.com/file/d/1pP
 video: Solutions to revision sheet | https://www.youtube.com/playlist?list=PLEPYP7v0ii24
 
 date: 2026-09-29
-title: Rearrange Formulaw
+title: Rearrange Formulae
 topic: Algebra
 summary: Took common formula and rearranged them.
 homework: Page 60-61 Questions 1-6
