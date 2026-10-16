@@ -75,3 +75,12 @@ topic: Algebra
 summary: Took common formula and rearranged them.
 homework: Page 60-61 Questions 1-6
 photos: 2026-09-29-1.jpg, 2026-09-29-2.jpg
+
+date: 2026-10-15
+title: Factorising a quadratic
+topic: Algebra
+summary: Today we looked at factoring quadratics where a=1 and b is both positive and negative.
+homework: Page 67, Q1 13 and 14 | https://drive.google.com/file/d/1-zfgWgUGLmYQEohh2pqU-RCBNgBQ6sPM/view?usp=share_link
+photos: 2026-10-15-1.jpg
+video: Positive quadratic | https://youtu.be/lPcCinkrRFA
+exitquiz: negative quadratic | https://youtu.be/Fj5grURwJW8
