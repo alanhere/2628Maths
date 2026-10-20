@@ -84,3 +84,12 @@ homework: Page 67, Q1 13 and 14 | https://drive.google.com/file/d/1-zfgWgUGLmYQE
 photos: 2026-10-15-1.jpg
 video: Positive quadratic | https://youtu.be/lPcCinkrRFA
 exitquiz: negative quadratic | https://youtu.be/Fj5grURwJW8
+
+date: 2026-10-20
+title: Factorise quadratic with a >1
+topic: Algebra factors
+summary: We factored trinomials where a was greater than 1. We completed the notes om factorisation.
+homework: Complete the revison sheet for the test on Thursday (22/10/26) | https://drive.google.com/file/d/1tV717gg4Nme2Kyxx7dCDGrt-nsfsO3gz/view?usp=share_link
+photos: 2026-10-20-1.jpg
+solutions: https://drive.google.com/file/d/1OIHhYxozZolxDsM1hbfwaSHazFbwoQ_c/view?usp=share_link
+video: Quadratic with a > 1 | https://www.youtube.com/watch?v=eB6J9k-_4Dc
