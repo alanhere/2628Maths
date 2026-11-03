@@ -93,3 +93,11 @@ homework: Complete the revison sheet for the test on Thursday (22/10/26) | https
 photos: 2026-10-20-1.jpg
 solutions: https://drive.google.com/file/d/1OIHhYxozZolxDsM1hbfwaSHazFbwoQ_c/view?usp=share_link
 video: Quadratic with a > 1 | https://www.youtube.com/watch?v=eB6J9k-_4Dc
+
+date: 2026-10-22
+title: Coordinate Geometry JC Revision 1
+topic: Coordinate Geometry
+summary: Today we started coordinate geometry of the line and reviewed the JC course including plotting points, midpoint and Distance.
+photos: 2026-10-22-1.jpg, 2026-10-22-2.jpg
+video: Midpoint | https://youtu.be/xseTCpiVjGc?si=FbWvXjHc2aJuO6Xw
+video: Distance | https://youtu.be/ubyFqGudR_s?si=BCU2sPI6YrK3aFZW
