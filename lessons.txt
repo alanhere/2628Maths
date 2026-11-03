@@ -101,3 +101,11 @@ summary: Today we started coordinate geometry of the line and reviewed the JC co
 photos: 2026-10-22-1.jpg, 2026-10-22-2.jpg
 video: Midpoint | https://youtu.be/xseTCpiVjGc?si=FbWvXjHc2aJuO6Xw
 video: Distance | https://youtu.be/ubyFqGudR_s?si=BCU2sPI6YrK3aFZW
+
+date: 2026-11-03
+title: Coordinate Geomerty review of JC (ii)
+topic: Coordinate Geometry
+summary: Given the distance and a missing coordinate, We utilised the distance formula that utilised the factorisation of a quadratic to find the possible values of the coroodainte.
+homework: Page 214 Q11.
+photos: 2026-11-03-1.jpg, 2026-11-03-2.jpg
+video: find missing point | https://youtu.be/a2xP8UgfsJg?si=XXE4o8bfAaZoAO1q
