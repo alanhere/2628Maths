@@ -109,3 +109,12 @@ summary: Given the distance and a missing coordinate, We utilised the distance f
 homework: Page 214 Q11.
 photos: 2026-11-03-1.jpg, 2026-11-03-2.jpg
 video: find missing point | https://youtu.be/a2xP8UgfsJg?si=XXE4o8bfAaZoAO1q
+
+date: 2026-11-06
+title: Equation of a line
+topic: Coordinate Geometry
+summary: Find the equation of a line using a point and slope. Found the equation of a line when given 2 points.
+homework: Page 222 Q6 and Q7
+photos: 2026-11-06-1.jpg, 2026-11-06-2.jpg
+video: equation of line with slope and a point | https://www.youtube.com/watch?v=vAXa-tvU0CU
+video: equation of a line given 2 points | https://www.youtube.com/watch?v=gf-829r4B4s
