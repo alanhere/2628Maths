@@ -24,7 +24,7 @@ date: 2026-10-02
  solutions: https://drive.google.com/file/d/1EK79kUSt3XIizGbMO9YDHhpAR1fOYriU/view?usp=share_link
  about: simpliying, brackets, algebraic fractions, equations, inequalities, simultaneous equations, rearranging formulae
 
-date: 2026-10-21
+date: 2026-10-22
 title: Factorisation test
 topic: Algebra 
 test: Factorisation | https://drive.google.com/file/d/19a-jI_rebGCd7kBUA23qtUJQx3oATqF8/view?usp=share_link
