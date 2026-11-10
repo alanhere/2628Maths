@@ -15,6 +15,13 @@
 # The entries below are examples. Change or delete them.
 # ---------------------------------------------------------------
 
+date: 5/11/26
+title: Revision for November Examn
+topic: practice questions
+about: topics and questions that will be on the exam
+link: view here | https://drive.google.com/file/d/15FAbgpxCySi2r1xXCu9ULtCVadt9MauM/view?usp=share_link
+
+
 date: 2026-10-15
 title: Studyclix
 topic: Practice questions
