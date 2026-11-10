@@ -118,3 +118,12 @@ homework: Page 222 Q6 and Q7
 photos: 2026-11-06-1.jpg, 2026-11-06-2.jpg
 video: equation of line with slope and a point | https://www.youtube.com/watch?v=vAXa-tvU0CU
 video: equation of a line given 2 points | https://www.youtube.com/watch?v=gf-829r4B4s
+
+date: 2026-11-10
+title: Equation of line y=mx+c
+topic: Coordinate Geometry
+summary: Used the format of the y=mx+c to determine the slope and Y intercept of the line. Used format to create equations of lines that were parallel and perpendicular to the original line,.
+homework: 1) Redo Friday's homework question 7 on page 222. 2) Q8 page 224 | https://drive.google.com/file/d/1b9SlHSpyrwMndPmllAg4U6R-EyMknNLT/view?usp=share_link
+photos: 2026-11-10-1.jpg, 2026-11-10-2.jpg
+video: Slope and Y intercept |https://www.youtube.com/watch?v=CjU-C5177Us
+video: perpendicular line | https://www.youtube.com/watch?v=KZG5ByowCrA
