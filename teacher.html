@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Publish a lesson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1D3A9C;--pen:#D3242B;--paper:#FDFEFF;--grid:#E3ECF5;--text:#1B2236;--muted:#5A6577;--rule:#B8CCE0;--tint:#EEF3F9;--good:#1c6b3a;
+ --hand:"Patrick Hand","Bradley Hand",cursive;--sans:"Lexend",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--ink:#A9BCFF;--pen:#FF7B80;--paper:#141A24;--grid:#1E2837;--text:#E6EAF2;--muted:#9AA5B8;--rule:#34445C;--tint:#1E2837;--good:#7fd69a}}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;color:var(--text);font:1rem/1.55 var(--sans);border-top:10px solid var(--ink)}
+main{max-width:44rem;margin:0 auto;padding:1.5rem 1rem 4rem}
+h1{font:400 2.4rem/1.1 var(--hand);color:var(--ink);margin:.2rem 0 .3rem;display:inline-block;border-bottom:3px solid var(--pen)}
+.sub{color:var(--muted);margin:.5rem 0 1.4rem}
+.card{background:var(--paper);border:2px solid var(--ink);border-radius:4px;padding:1rem 1.1rem 1.2rem;margin-bottom:1.1rem}
+h2{font:400 1.5rem/1.15 var(--hand);color:var(--ink);margin:0 0 .5rem}
+label{display:block;font-weight:500;font-size:.9rem;margin:.8rem 0 .25rem}
+.hint{color:var(--muted);font-size:.85rem;font-weight:400}
+input[type=text],input[type=date],input[type=password],select,textarea{width:100%;font:inherit;color:var(--text);background:var(--paper);border:1.5px solid var(--rule);border-radius:4px;padding:.55rem .65rem}
+textarea{min-height:5rem;resize:vertical}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:3px solid var(--pen);outline-offset:1px}
+.row{display:flex;gap:.6rem;flex-wrap:wrap}.row>*{flex:1 1 12rem}
+.check{display:flex;gap:.6rem;align-items:flex-start;font-weight:400;margin-top:1rem}
+.check input{margin-top:.3rem;width:1.1rem;height:1.1rem}
+button{font:500 1rem var(--sans);cursor:pointer;min-height:44px;padding:.3rem 1.1rem;background:transparent;color:var(--ink);border:2px solid var(--ink);border-radius:4px 10px 5px 9px/9px 5px 10px 4px}
+button:hover{background:var(--ink);color:var(--paper)}
+button:disabled{opacity:.5;cursor:default}
+button.main{background:var(--ink);color:var(--paper)}button.main:hover:not(:disabled){background:transparent;color:var(--ink)}
+button.small{min-height:34px;font-size:.85rem;padding:.1rem .7rem}
+.drop{border:2px dashed var(--rule);border-radius:6px;padding:1.2rem;text-align:center;color:var(--muted);background:var(--tint);cursor:pointer}
+.drop.over{border-color:var(--pen);background:var(--paper)}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr));gap:.7rem;margin-top:.8rem}
+.thumb{border:1.5px solid var(--rule);border-radius:4px;padding:.4rem;background:var(--paper);font-size:.78rem;word-break:break-all}
+.thumb img{width:100%;height:6rem;object-fit:cover;border-radius:3px;display:block;background:var(--tint)}
+.thumb .ph{height:6rem;display:grid;place-items:center;background:var(--tint);border-radius:3px;color:var(--muted)}
+.thumb .acts{display:flex;gap:.25rem;margin-top:.35rem}.thumb .acts button{min-height:30px;padding:0 .5rem;font-size:.8rem;flex:1}
+.msg{padding:.7rem .9rem;border-radius:4px;margin:.8rem 0;border:1.5px solid var(--pen)}
+.msg.ok{border-color:var(--good)}
+details{margin-top:.8rem}summary{cursor:pointer;color:var(--ink);font-weight:500}
+details ol{margin:.5rem 0 0;padding-left:1.3rem}details li{margin:.3rem 0}
+pre{white-space:pre-wrap;word-break:break-word;background:var(--tint);border:1.5px solid var(--rule);border-radius:4px;padding:.8rem;font:.88rem/1.5 ui-monospace,Menlo,monospace}
+.progress{color:var(--muted);min-height:1.5em}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<h1>Publish a lesson</h1>
+<p class="sub">Fill in what you have and leave the rest blank. The lesson goes straight to the class website. No GitHub Desktop needed.</p>
+
+<div class="card" id="connectCard">
+  <h2>1. Connect to the site</h2>
+  <div class="row">
+    <div><label for="repo">Which class website?</label>
+      <select id="repo" aria-label="Class website">
+        <option value="alanhere/2628Maths">5th year maths (2628Maths)</option>
+        <option value="alanhere/mathsJC2027">3rd year maths (mathsJC2027)</option>
+        <option value="alanhere/MathsJC2028">2nd year HL maths (MathsJC2028)</option>
+        <option value="__other__">Another site…</option>
+      </select></div>
+    <div id="otherWrap" hidden><label for="other">Owner and repository</label><input type="text" id="other" placeholder="alanhere/YourRepo" autocomplete="off"></div>
+  </div>
+  <label for="token">Your GitHub token <span class="hint">stays in this page only, never saved</span></label>
+  <input type="password" id="token" autocomplete="current-password" placeholder="github_pat_…">
+  <details>
+    <summary>How do I get a token?</summary>
+    <ol>
+      <li>Sign in to github.com, click your picture, then <strong>Settings</strong>.</li>
+      <li>Scroll down to <strong>Developer settings</strong>, then <strong>Personal access tokens</strong>, then <strong>Fine-grained tokens</strong>, then <strong>Generate new token</strong>.</li>
+      <li>Name it “Lesson publisher”. Set the expiry to a year.</li>
+      <li>Under <strong>Repository access</strong> choose <strong>Only select repositories</strong> and tick your class websites.</li>
+      <li>Under <strong>Permissions</strong>, then <strong>Repository permissions</strong>, set <strong>Contents</strong> to <strong>Read and write</strong>.</li>
+      <li>Click <strong>Generate token</strong> and copy it (it starts github_pat_). You only see it once, so keep it in a password manager.</li>
+    </ol>
+  </details>
+  <p><button type="button" class="main" id="connect">Connect</button></p>
+  <div id="connMsg" class="msg" hidden></div>
+</div>
+
+<div id="form" hidden>
+  <div class="card">
+    <h2>2. The lesson</h2>
+    <div class="row">
+      <div><label for="date">Date</label><input type="date" id="date"></div>
+      <div style="flex:3 1 16rem"><label for="title">Title <span class="hint">(required)</span></label><input type="text" id="title" placeholder="Solving simultaneous equations" autocomplete="off"></div>
+    </div>
+    <label for="topic">Topic <span class="hint">optional, a small tag under the title. Pick one you have used, or type a new one</span></label>
+    <input type="text" id="topic" list="topics" autocomplete="off" placeholder="Algebra">
+    <datalist id="topics"></datalist>
+    <div id="dupe" class="msg" hidden></div>
+    <label for="summary">What we did in class <span class="hint">one or two sentences</span></label>
+    <textarea id="summary"></textarea>
+  </div>
+
+  <div class="card">
+    <h2>Homework</h2>
+    <label for="hwdesc">Today’s homework <span class="hint">for example Exercise 7C, questions 1 to 10</span></label>
+    <input type="text" id="hwdesc" autocomplete="off">
+    <label for="hwlink">Link to today’s homework <span class="hint">Google Drive share link</span></label>
+    <input type="text" id="hwlink" autocomplete="off">
+    <label for="solutions">Link to last night’s solutions <span class="hint">can be added later</span></label>
+    <input type="text" id="solutions" autocomplete="off">
+    <label class="check"><input type="checkbox" id="hidehw"><span>Hide the “Last night’s homework” box on this lesson</span></label>
+  </div>
+
+  <div class="card">
+    <h2>From the board</h2>
+    <div class="drop" id="drop" tabindex="0" role="button">Drop photos or a board PDF here, or click to choose<br><span class="hint">Photos are shrunk and named with the date. Each page of a PDF becomes a picture.</span></div>
+    <input type="file" id="files" accept="image/*,.heic,.heif,.pdf" multiple hidden>
+    <p class="hint" id="fileStatus" role="status" aria-live="polite"></p>
+    <div class="thumbs" id="thumbs"></div>
+  </div>
+
+  <div class="card">
+    <h2>Video help and exit quiz</h2>
+    <div id="vids"></div>
+    <p><button type="button" class="small" id="addvid">+ Add another video</button> <span class="hint">up to 3</span></p>
+    <label for="exitquiz">Exit quiz link <span class="hint">isaacscience.org, leave blank if none</span></label>
+    <input type="text" id="exitquiz" autocomplete="off">
+  </div>
+
+  <div id="err" class="msg" hidden></div>
+  <p class="progress" id="progress" role="status" aria-live="polite"></p>
+  <button type="button" class="main" id="publish">Publish lesson to the website</button>
+</div>
+
+<div id="done" hidden>
+  <div class="card">
+    <h2>Lesson published</h2>
+    <p id="doneMsg"></p>
+    <pre id="block"></pre>
+    <p class="hint">The website updates in a minute or two. Refresh with Cmd+Shift+R if you do not see it straight away.</p>
+    <div class="row">
+      <button type="button" class="main" id="viewSite">View the website</button>
+      <button type="button" id="another">Publish another lesson</button>
+    </div>
+  </div>
+</div>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var S = { owner: "", repo: "", branch: "main", dates: [] };
+  var files = [];            /* { blob, name, isPdf, url } */
+  var vidCount = 0, topicTouched = false;
+  var MAX_TOTAL = 40 * 1024 * 1024;
+
+  /* ---------- small helpers ---------- */
+  function today() {
+    var d = new Date();
+    return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+  }
+  function one(s) { return String(s || "").replace(/\s+/g, " ").trim(); }
+  function show(el, text, ok) { el.textContent = text || ""; el.hidden = !text; el.classList.toggle("ok", !!ok); }
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function fetchStore(k) { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } }
+
+  /* ---------- GitHub ---------- */
+  function headers(raw) {
+    return {
+      "Accept": raw ? "application/vnd.github.raw+json" : "application/vnd.github+json",
+      "Authorization": "Bearer " + $("token").value.trim(),
+      "X-GitHub-Api-Version": "2022-11-28"
+    };
+  }
+  function explain(status, detail) {
+    if (status === 401) return "GitHub did not accept that token. Check you copied all of it, and that it has not expired.";
+    if (status === 403) return "GitHub says this token is not allowed to do that. Check the token has Contents set to Read and write for this repository.";
+    if (status === 404) return "GitHub cannot find that repository with this token. Check the name, and that the token includes this repository.";
+    if (status === 422) return "The website changed while you were working. Click Publish again.";
+    return "GitHub said: " + (detail || status);
+  }
+  async function api(path, method, body) {
+    var opts = { method: method || "GET", headers: headers(false), cache: "no-store" };
+    if (body) { opts.headers["Content-Type"] = "application/json"; opts.body = JSON.stringify(body); }
+    var res = await fetch("https://api.github.com" + path, opts);
+    if (!res.ok) {
+      var d = ""; try { d = (await res.json()).message || ""; } catch (e) {}
+      var err = new Error(explain(res.status, d)); err.status = res.status; throw err;
+    }
+    return res.json();
+  }
+  async function readText(path) {
+    var res = await fetch("https://api.github.com/repos/" + S.owner + "/" + S.repo + "/contents/" + path + "?ref=" + encodeURIComponent(S.branch) + "&t=" + Date.now(),
+      { headers: headers(true), cache: "no-store" });
+    if (res.status === 404) return null;
+    if (!res.ok) { var err = new Error(explain(res.status)); err.status = res.status; throw err; }
+    return res.text();
+  }
+  async function listDir(dir) {
+    try {
+      var list = await api("/repos/" + S.owner + "/" + S.repo + "/contents/" + dir + "?ref=" + encodeURIComponent(S.branch) + "&t=" + Date.now());
+      return Array.isArray(list) ? list.map(function (x) { return x.name; }) : [];
+    } catch (e) { if (e.status === 404) return []; throw e; }
+  }
+  function repoName() {
+    var v = $("repo").value;
+    if (v === "__other__") v = $("other").value.trim();
+    var m = v.match(/^([\w.-]+)\/([\w.-]+)$/);
+    return m ? { owner: m[1], repo: m[2] } : null;
+  }
+
+  /* ---------- connect ---------- */
+  function readLessons(text) {
+    var dates = [], topics = [], last = null, cur = null;
+    text.replace(/\r/g, "").split("\n").forEach(function (raw) {
+      var line = raw.trim();
+      if (!line || line[0] === "#") return;
+      var m = line.match(/^([A-Za-z][A-Za-z0-9-]*)\s*:\s*(.*)$/);
+      if (!m) return;
+      var k = m[1].toLowerCase(), v = m[2];
+      if (k === "date") { cur = { date: v.trim(), title: "" }; dates.push(cur.date); if (!last || cur.date >= last.date) last = cur; }
+      else if (k === "title" && cur && !cur.title) cur.title = v.trim();
+      else if (k === "topic" && v.trim() && topics.indexOf(v.trim()) < 0) topics.push(v.trim());
+    });
+    return { dates: dates, topics: topics, last: last };
+  }
+  function checkDupe() {
+    var d = $("date").value, e = $("dupe");
+    show(e, d && S.dates.indexOf(d) >= 0 ? "There is already a lesson dated " + d + ". Publishing will add another one for the same day." : "");
+  }
+  async function connect() {
+    var r = repoName();
+    show($("connMsg"), "");
+    if (!r) return show($("connMsg"), "Type the repository as owner/name, for example alanhere/2628Maths.");
+    if (!$("token").value.trim()) return show($("connMsg"), "Paste your GitHub token first.");
+    var btn = $("connect"); btn.disabled = true; btn.textContent = "Connecting…";
+    try {
+      S.owner = r.owner; S.repo = r.repo;
+      var info = await api("/repos/" + r.owner + "/" + r.repo);
+      S.branch = info.default_branch || "main";
+      var lessons = await readText("lessons.txt");
+      if (lessons === null) throw new Error("That repository has no lessons.txt, so it does not look like one of the class websites.");
+      var cfg = (await readText("config.js")) || "";
+      var t = cfg.match(/title:\s*"([^"]*)"/);
+      var parsed = readLessons(lessons);
+      S.dates = parsed.dates;
+      var dl = $("topics"); dl.innerHTML = "";
+      parsed.topics.forEach(function (x) { var o = document.createElement("option"); o.value = x; dl.appendChild(o); });
+      if (!topicTouched) $("topic").value = parsed.topics[0] || "";
+      store("lessonPublisherRepo", $("repo").value === "__other__" ? "__other__:" + $("other").value.trim() : $("repo").value);
+      show($("connMsg"), "Connected to " + (t ? t[1] : r.repo) + ". " + (parsed.last ? "Latest lesson: " + parsed.last.date + (parsed.last.title ? " – " + parsed.last.title : "") + "." : "No lessons yet."), true);
+      $("form").hidden = false;
+      checkDupe();
+    } catch (e) {
+      show($("connMsg"), e.message || "Could not connect. Check your internet and try again.");
+      $("form").hidden = true;
+    }
+    btn.disabled = false; btn.textContent = "Connect";
+  }
+  $("connect").addEventListener("click", connect);
+  $("token").addEventListener("keydown", function (e) { if (e.key === "Enter") connect(); });
+  $("repo").addEventListener("change", function () { $("otherWrap").hidden = $("repo").value !== "__other__"; $("form").hidden = true; });
+  $("date").addEventListener("change", checkDupe);
+  $("topic").addEventListener("input", function () { topicTouched = true; });
+
+  /* ---------- videos ---------- */
+  function addVideo() {
+    if (vidCount >= 3) return;
+    vidCount++;
+    var d = document.createElement("div");
+    d.innerHTML = '<label for="vid' + vidCount + '">Video ' + vidCount + ' link <span class="hint">YouTube. You can write a title first: Worked answers | https://…</span></label><input type="text" class="vid" id="vid' + vidCount + '" autocomplete="off">';
+    $("vids").appendChild(d);
+    if (vidCount >= 3) $("addvid").hidden = true;
+  }
+  $("addvid").addEventListener("click", addVideo);
+
+  /* ---------- pictures ---------- */
+  function toJpeg(canvas, q) {
+    return new Promise(function (res) { canvas.toBlob(res, "image/jpeg", q); });
+  }
+  async function loadBitmap(file) {
+    if (window.createImageBitmap) {
+      try { return await createImageBitmap(file, { imageOrientation: "from-image" }); } catch (e) {}
+    }
+    return new Promise(function (res, rej) {
+      var img = new Image(), u = URL.createObjectURL(file);
+      img.onload = function () { res(img); };
+      img.onerror = function () { rej(new Error("unreadable")); };
+      img.src = u;
+    });
+  }
+  async function shrinkPhoto(file) {
+    var bmp = await loadBitmap(file);
+    var w = bmp.width || bmp.naturalWidth, h = bmp.height || bmp.naturalHeight;
+    var k = Math.min(1, 1600 / Math.max(w, h));
+    var c = document.createElement("canvas"); c.width = Math.round(w * k); c.height = Math.round(h * k);
+    var ctx = c.getContext("2d"); ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, c.width, c.height);
+    ctx.drawImage(bmp, 0, 0, c.width, c.height);
+    return toJpeg(c, 0.7);
+  }
+
+  var PDFJS = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/", pdfReady = null;
+  function loadPdfJs() {
+    if (pdfReady) return pdfReady;
+    pdfReady = new Promise(function (res, rej) {
+      var s = document.createElement("script");
+      s.src = PDFJS + "pdf.min.js";
+      s.onload = function () {
+        fetch(PDFJS + "pdf.worker.min.js").then(function (r) { return r.text(); }).then(function (txt) {
+          window.pdfjsLib.GlobalWorkerOptions.workerSrc = URL.createObjectURL(new Blob([txt], { type: "text/javascript" }));
+          res(window.pdfjsLib);
+        }).catch(rej);
+      };
+      s.onerror = function () { rej(new Error("load")); };
+      document.head.appendChild(s);
+    });
+    pdfReady.catch(function () { pdfReady = null; });
+    return pdfReady;
+  }
+  async function pdfToPictures(file, say) {
+    var lib = await loadPdfJs();
+    var doc = await lib.getDocument({ data: await file.arrayBuffer() }).promise;
+    var total = Math.min(doc.numPages, 20), out = [];
+    for (var n = 1; n <= total; n++) {
+      say("Turning " + file.name + " into pictures: page " + n + " of " + total + "…");
+      var page = await doc.getPage(n);
+      var v1 = page.getViewport({ scale: 1 });
+      var vp = page.getViewport({ scale: 1600 / Math.max(v1.width, v1.height) });
+      var c = document.createElement("canvas"); c.width = Math.round(vp.width); c.height = Math.round(vp.height);
+      var ctx = c.getContext("2d"); ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, c.width, c.height);
+      await page.render({ canvasContext: ctx, viewport: vp }).promise;
+      out.push(await toJpeg(c, 0.8));
+    }
+    return { blobs: out, skipped: doc.numPages - total };
+  }
+
+  function push(blob, name, isPdf) { files.push({ blob: blob, name: name, isPdf: isPdf, url: isPdf ? "" : URL.createObjectURL(blob) }); }
+  async function addFiles(list) {
+    var st = $("fileStatus"), notes = [];
+    for (var i = 0; i < list.length; i++) {
+      var f = list[i];
+      var isPdf = /\.pdf$/i.test(f.name) || f.type === "application/pdf";
+      try {
+        if (isPdf) {
+          try {
+            var r = await pdfToPictures(f, function (m) { st.textContent = m; });
+            r.blobs.forEach(function (b, k) { push(b, f.name.replace(/\.pdf$/i, "") + "-page-" + (k + 1) + ".jpg", false); });
+            notes.push("Turned " + f.name + " into " + r.blobs.length + " picture(s)." + (r.skipped ? " Only the first 20 pages were used." : ""));
+          } catch (e) {
+            push(f, f.name, true);
+            notes.push("Could not turn " + f.name + " into pictures, so it will be saved as a PDF instead.");
+          }
+        } else {
+          st.textContent = "Shrinking " + f.name + "…";
+          push(await shrinkPhoto(f), f.name, false);
+        }
+      } catch (e) {
+        notes.push("Could not read " + f.name + ". If it is a HEIC photo, try Safari, or export it as a JPEG first.");
+      }
+      drawThumbs();
+    }
+    st.textContent = notes.join(" ");
+    drawThumbs();
+  }
+  function drawThumbs() {
+    var t = $("thumbs"); t.innerHTML = ""; var p = 0;
+    files.forEach(function (x, i) {
+      var d = document.createElement("div"); d.className = "thumb";
+      var pic;
+      if (x.isPdf) { pic = document.createElement("div"); pic.className = "ph"; pic.textContent = "PDF"; }
+      else { pic = document.createElement("img"); pic.alt = ""; pic.src = x.url; }
+      d.appendChild(pic);
+      var lab = document.createElement("div"); if (!x.isPdf) p++;
+      lab.textContent = x.isPdf ? "Board PDF" : "Photo " + p; d.appendChild(lab);
+      var a = document.createElement("div"); a.className = "acts";
+      function btn(txt, label, fn) { var b = document.createElement("button"); b.type = "button"; b.textContent = txt; b.setAttribute("aria-label", label); b.onclick = fn; a.appendChild(b); }
+      btn("←", "Move earlier", function () { if (i > 0) { var y = files[i - 1]; files[i - 1] = files[i]; files[i] = y; drawThumbs(); } });
+      btn("→", "Move later", function () { if (i < files.length - 1) { var y = files[i + 1]; files[i + 1] = files[i]; files[i] = y; drawThumbs(); } });
+      btn("✕", "Remove", function () { files.splice(i, 1); drawThumbs(); });
+      d.appendChild(a); t.appendChild(d);
+    });
+  }
+  var drop = $("drop");
+  drop.addEventListener("click", function () { $("files").click(); });
+  drop.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $("files").click(); } });
+  $("files").addEventListener("change", function (e) { addFiles(Array.prototype.slice.call(e.target.files)); e.target.value = ""; });
+  ["dragenter", "dragover"].forEach(function (n) { drop.addEventListener(n, function (e) { e.preventDefault(); drop.classList.add("over"); }); });
+  ["dragleave", "drop"].forEach(function (n) { drop.addEventListener(n, function (e) { e.preventDefault(); drop.classList.remove("over"); }); });
+  drop.addEventListener("drop", function (e) { addFiles(Array.prototype.slice.call(e.dataTransfer.files)); });
+  window.addEventListener("dragover", function (e) { e.preventDefault(); });
+  window.addEventListener("drop", function (e) { e.preventDefault(); });
+
+  function toB64(blob) {
+    return new Promise(function (res, rej) {
+      var r = new FileReader();
+      r.onload = function () { res(String(r.result).split(",")[1] || ""); };
+      r.onerror = rej; r.readAsDataURL(blob);
+    });
+  }
+
+  /* ---------- publish ---------- */
+  function buildBlock(date, boards, photos) {
+    var L = ["date: " + date, "title: " + one($("title").value)];
+    if (one($("topic").value)) L.push("topic: " + one($("topic").value));
+    if (one($("summary").value)) L.push("summary: " + one($("summary").value));
+    var hd = one($("hwdesc").value), hl = one($("hwlink").value);
+    if (hd && hl) L.push("homework: " + hd + " | " + hl); else if (hd || hl) L.push("homework: " + (hl || hd));
+    boards.forEach(function (b) { L.push("board: " + b); });
+    if (photos.length) L.push("photos: " + photos.join(", "));
+    if (one($("solutions").value)) L.push("solutions: " + one($("solutions").value));
+    if ($("hidehw").checked) L.push("hidehomework: yes");
+    Array.prototype.slice.call(document.querySelectorAll(".vid")).map(function (i) { return one(i.value); }).filter(Boolean).slice(0, 3)
+      .forEach(function (v) { L.push("video: " + v); });
+    if (one($("exitquiz").value)) L.push("exitquiz: " + one($("exitquiz").value));
+    return L.join("\n");
+  }
+  async function publish() {
+    var err = $("err"), prog = $("progress"); show(err, "");
+    var date = $("date").value;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return show(err, "Choose the lesson date.");
+    if (!one($("title").value)) { $("title").focus(); return show(err, "A lesson needs a title."); }
+    var total = files.reduce(function (n, f) { return n + f.blob.size; }, 0);
+    if (total > MAX_TOTAL) return show(err, "The pictures add up to more than 40 MB. Remove some, or use fewer pages.");
+    var btn = $("publish"); btn.disabled = true;
+    try {
+      var base = "/repos/" + S.owner + "/" + S.repo;
+      prog.textContent = "Checking the website for changes…";
+      var ref = await api(base + "/git/ref/heads/" + S.branch.split("/").map(encodeURIComponent).join("/"));
+      var parentSha = ref.object.sha;
+      var parent = await api(base + "/git/commits/" + parentSha);
+      var lessons = await readText("lessons.txt");
+      if (lessons === null) throw new Error("lessons.txt has gone missing from the repository.");
+      var photoNames = await listDir("photos"), boardNames = await listDir("board");
+
+      var n = photoNames.filter(function (x) { return new RegExp("^" + date + "-\\d+\\.jpg$").test(x); }).length;
+      var photos = [], boards = [], entries = [];
+      for (var i = 0; i < files.length; i++) {
+        var f = files[i], path, name;
+        prog.textContent = "Uploading " + (i + 1) + " of " + files.length + "…";
+        if (f.isPdf) {
+          var bn = 1; name = date + ".pdf";
+          while (boardNames.indexOf(name) >= 0 || boards.indexOf(name) >= 0) { bn++; name = date + "-" + bn + ".pdf"; }
+          boards.push(name); path = "board/" + name;
+        } else {
+          n++; name = date + "-" + n + ".jpg";
+          photos.push(name); path = "photos/" + name;
+        }
+        var blob = await api(base + "/git/blobs", "POST", { content: await toB64(f.blob), encoding: "base64" });
+        entries.push({ path: path, mode: "100644", type: "blob", sha: blob.sha });
+      }
+      var block = buildBlock(date, boards, photos);
+      var next = lessons + (lessons && !/\n$/.test(lessons) ? "\n" : "") + "\n" + block + "\n";
+      var lb = await api(base + "/git/blobs", "POST", { content: next, encoding: "utf-8" });
+      entries.push({ path: "lessons.txt", mode: "100644", type: "blob", sha: lb.sha });
+
+      prog.textContent = "Publishing…";
+      var tree = await api(base + "/git/trees", "POST", { base_tree: parent.tree.sha, tree: entries });
+      var commit = await api(base + "/git/commits", "POST", { message: "Add lesson: " + date + " - " + one($("title").value), tree: tree.sha, parents: [parentSha] });
+      await api(base + "/git/refs/heads/" + S.branch.split("/").map(encodeURIComponent).join("/"), "PATCH", { sha: commit.sha, force: false });
+
+      S.dates.push(date);
+      $("doneMsg").textContent = "Added to " + S.repo + ": " + boards.length + " board PDF(s) and " + photos.length + " photo(s).";
+      $("block").textContent = block;
+      $("form").hidden = true; $("connectCard").hidden = true; $("done").hidden = false; window.scrollTo(0, 0);
+      prog.textContent = "";
+    } catch (e) {
+      show(err, "Nothing was published. " + (e.message || "Something went wrong.") );
+      prog.textContent = "";
+    }
+    btn.disabled = false;
+  }
+  $("publish").addEventListener("click", publish);
+  $("viewSite").addEventListener("click", function () { window.open("https://" + S.owner.toLowerCase() + ".github.io/" + S.repo + "/", "_blank", "noopener"); });
+  $("another").addEventListener("click", function () { resetForm(); $("done").hidden = true; $("connectCard").hidden = false; $("form").hidden = false; checkDupe(); });
+
+  function resetForm() {
+    ["title", "summary", "hwdesc", "hwlink", "solutions", "exitquiz"].forEach(function (i) { $(i).value = ""; });
+    $("hidehw").checked = false; topicTouched = false;
+    $("date").value = today();
+    $("vids").innerHTML = ""; vidCount = 0; $("addvid").hidden = false; addVideo();
+    files = []; drawThumbs(); show($("err"), ""); $("fileStatus").textContent = ""; $("progress").textContent = "";
+  }
+
+  var saved = fetchStore("lessonPublisherRepo");
+  if (saved.indexOf("__other__:") === 0) { $("repo").value = "__other__"; $("otherWrap").hidden = false; $("other").value = saved.slice(10); }
+  else if (saved && $("repo").querySelector('option[value="' + saved + '"]')) $("repo").value = saved;
+  resetForm();
+})();
+</script>
+</body>
+</html>
