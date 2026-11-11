@@ -127,3 +127,12 @@ homework: 1) Redo Friday's homework question 7 on page 222. 2) Q8 page 224 | htt
 photos: 2026-11-10-1.jpg, 2026-11-10-2.jpg
 video: Slope and Y intercept |https://www.youtube.com/watch?v=CjU-C5177Us
 video: perpendicular line | https://www.youtube.com/watch?v=KZG5ByowCrA
+
+date: 2026-11-11
+title: Slope and Perpendicular Lines
+topic: Coordinate Geometry
+summary: We converted from standard form ax+by+c=0 into y=mx+c form. We determined the slope and intercept from y=mx+c. We determined if two lines were perpendicular by testing if the product of the slopes if negative 1.
+homework: a) Complete the Mix it up questions in the slope worksheet and b) complete the two extension questions in the Perpendicular lines worksheet.
+photos: 2026-11-11-1.jpg, 2026-11-11-2.jpg, 2026-11-11-3.jpg, 2026-11-11-4.jpg, 2026-11-11-5.jpg, 2026-11-11-6.jpg, 2026-11-11-7.jpg, 2026-11-11-8.jpg, 2026-11-11-9.jpg, 2026-11-11-10.jpg, 2026-11-11-11.jpg, 2026-11-11-12.jpg, 2026-11-11-13.jpg
+solutions: https://drive.google.com/file/d/1Gi8HrCBhXx4pGh_OgEhGnwsTidYa9lJ-/view?usp=share_link
+video: https://www.youtube.com/watch?v=vx3cGLp9tQM
