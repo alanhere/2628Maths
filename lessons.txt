@@ -144,3 +144,11 @@ summary: Today we looked at calculating the area of a triangle using coordinate 
 homework: Complete question 1 page 233.
 photos: 2026-11-12-1.jpg
 video: area of a triangle | https://www.loom.com/share/b63a3e1a8e9a4a2a9ccb09f51fc1a187?sharedAppSource=personal_library
+
+date: 2026-11-13
+title: Area of a triangle (ii) and point on a line
+topic: Coordinate Geometry
+summary: We found the area of a triangle when none of the coordinates were at the origin (0,0). We resolved this by translation the coordinates so that one of them was translated to (0,0). We determined if a point exists on a line.
+homework: Prepare for the exam next week using the revision sheet.
+photos: 2026-11-13-1.jpg, 2026-11-13-2.jpg, 2026-11-13-3.jpg
+hidehomework: yes
