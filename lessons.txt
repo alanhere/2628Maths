@@ -152,3 +152,12 @@ summary: We found the area of a triangle when none of the coordinates were at th
 homework: Prepare for the exam next week using the revision sheet.
 photos: 2026-11-13-1.jpg, 2026-11-13-2.jpg, 2026-11-13-3.jpg
 hidehomework: yes
+
+date: 2026-11-24
+title: Sketching a straight line
+topic: Coordinate Geometry
+summary: We determined 2 points from an equation of a line(using the cover up method) and used the two points to sketch the line.
+homework: Page 229 Questions 4 to 7.
+photos: 2026-11-24-1.jpg, 2026-11-24-2.jpg, 2026-11-24-3.jpg
+hidehomework: yes
+video: Determine the two points | https://www.youtube.com/watch?v=wCjr7KVxU1A
